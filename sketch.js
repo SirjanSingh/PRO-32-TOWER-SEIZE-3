@@ -26,19 +26,19 @@ ground2 = new Ground(750,590,320,20);
 ground3 = new Ground(1050,300,250,20);
 platform = new Ground(150, 570, 300, 210);
 
-b1 = new Box (653,465,60,70)
-b2 = new Box (720,465,60,70)
-b3 = new Box (785,465,60,70)
-b4 = new Box (850,465,60,70)
+b1 = new Box (653,555,60,70)
+b2 = new Box (720,555,60,70)
+b3 = new Box (785,555,60,70)
+b4 = new Box (850,555,60,70)
 
-b5 = new Box (683,400,60,70)
-b6 = new Box (750,400,60,70)
-b7 = new Box (815,400,60,70)
+b5 = new Box (683,485,60,70)
+b6 = new Box (750,485,60,70)
+b7 = new Box (815,485,60,70)
 
-b8 = new Box (720,335,60,70)
-b9 = new Box (785,335,60,70)
+b8 = new Box (720,415,60,70)
+b9 = new Box (785,415,60,70)
 
-b10 = new Box (750,270,60,70)
+b10 = new Box (750,345,60,70)
 
 c1 = new Box (983,290,60,70)
 c2 = new Box (1050,290,60,70)
@@ -63,6 +63,7 @@ function draw() {
   background(bkimg);  
   Engine.update(engine);
   
+  console.log(b10.body.speed)
   ground1.display();
   ground2.display();
   ground3.display();

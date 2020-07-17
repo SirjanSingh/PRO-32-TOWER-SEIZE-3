@@ -14,7 +14,8 @@ class BaseClass{
       display(){
         var angle = this.body.angle;
         push();
-        strokeWeight(4);
+        strokeWeight(10);
+        fill("white")
         translate(this.body.position.x, this.body.position.y);
         rotate(angle);
         imageMode(CENTER);
