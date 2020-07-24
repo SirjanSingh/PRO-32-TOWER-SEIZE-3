@@ -38,7 +38,7 @@ class Ball extends BaseClass {
 class Ball extends BaseClass {
   constructor(x,y){
     super(x,y,50,50);
-    this.image = loadImage("sprites/pentagon2.jpg");
+    this.image = loadImage("sprites/imageonline-co-transparentimage (2).png");
   }
 
   display() {
