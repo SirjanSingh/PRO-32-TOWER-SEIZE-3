@@ -10,9 +10,10 @@ var bird, sling;
 var ground1,ground2;
 var b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
 var c1,c2,c3,c4,c5,c6;
-
+var score=0;
+var backgroundImg;
 function preload() {
-    bkimg = loadImage("sprites/bg.png");
+  setBackGroundImg();
 }
 
 function setup() {
@@ -40,14 +41,14 @@ b9 = new Box (785,415,60,70)
 
 b10 = new Box (750,345,60,70)
 
-c1 = new Box (983,290,60,70)
-c2 = new Box (1050,290,60,70)
-c3= new Box (1115,290,60,70)
+c1 = new Box2 (983,290,60,70)
+c2 = new Box2 (1050,290,60,70)
+c3= new Box2 (1115,290,60,70)
 
-c4 = new Box (1020,225,60,70)
-c5 = new Box (1085,225,60,70)
+c4 = new Box2 (1020,225,60,70)
+c5 = new Box2 (1085,225,60,70)
 
-c6 = new Box (1050,160,60,70)
+c6 = new Box2 (1050,160,60,70)
 
 bird = new Ball(200,100,50,50);
 
@@ -60,10 +61,11 @@ Engine.run(engine);
 }
 
 function draw() {
-  background(bkimg);  
-  Engine.update(engine);
+  if(backgroundImg){
+    background(backgroundImg);
+}  Engine.update(engine);
   
-  console.log(b10.body.speed)
+ // console.log(b10.body.speed)
   ground1.display();
   ground2.display();
   ground3.display();
@@ -90,9 +92,31 @@ function draw() {
   c5.display();
   c6.display();
   
+
+  b1.score();
+  b2.score();
+  b3.score();
+  b4.score();
+  b5.score();
+  b6.score();
+  b7.score();
+  b8.score();
+  b9.score();
+  b10.score();
+  
+  c1.score();
+  c2.score();
+  c3.score();
+  c4.score();
+  c5.score();
+  c6.score();
   bird.display();
 
   sling.display();
+console.log(score)
+textSize(20);
+
+  text("THE SCORE IS "+score,1000,50);
 }
 function mouseDragged(){
   Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
@@ -107,4 +131,24 @@ function keyPressed(){
   if (keyCode===32){
      sling.attach(bird.body);
   }
+}
+
+async function setBackGroundImg(){
+var response= await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+var responseJson=  await response.json();
+
+var time = responseJson.datetime.slice(11,13);
+console.log(time);
+
+if (time>6&&time <18 ){
+  bg = "sprites/bg.png";
+
+}
+else  {
+  bg = "sprites/bg2.jpg";
+fill ("white");
+}
+backgroundImg=loadImage(bg);
+
+
 }

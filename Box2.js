@@ -1,8 +1,8 @@
-class Box extends BaseClass {
+class Box2 extends BaseClass {
     constructor(x, y, width, height){
       super(x,y,width,height);
       this.visibility=255;
-this.image=loadImage("sprites/wood1.png")
+this.image=loadImage("sprites/enemy.png")
     }
 
     score(){
