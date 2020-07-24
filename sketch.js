@@ -12,6 +12,7 @@ var b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
 var c1,c2,c3,c4,c5,c6;
 var score=0;
 var backgroundImg;
+var time2, time3;
 function preload() {
   setBackGroundImg();
 }
@@ -117,6 +118,9 @@ console.log(score)
 textSize(20);
 
   text("THE SCORE IS "+score,1000,50);
+  text("THE TIME IS "+time2+" hrs",100,100);
+  text("THIS IS "+time3,100,150);
+
 }
 function mouseDragged(){
   Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
@@ -138,15 +142,18 @@ var response= await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
 var responseJson=  await response.json();
 
 var time = responseJson.datetime.slice(11,13);
+time2= responseJson.datetime.slice(11,16);
 console.log(time);
 
 if (time>6&&time <18 ){
   bg = "sprites/bg.png";
-
+ time3= "DAY";
 }
 else  {
   bg = "sprites/bg2.jpg";
 fill ("white");
+time3= "NIGHT";
+
 }
 backgroundImg=loadImage(bg);
 
