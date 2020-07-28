@@ -118,7 +118,7 @@ console.log(score)
 textSize(20);
 
   text("THE SCORE IS "+score,1000,50);
-  text("THE TIME IS "+time2+" hrs",100,100);
+ // text("THE TIME IS "+time2+" hrs",100,100);
   text("THIS IS "+time3,100,150);
 
 }
@@ -142,8 +142,8 @@ var response= await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata");
 var responseJson=  await response.json();
 
 var time = responseJson.datetime.slice(11,13);
-time2= responseJson.datetime.slice(11,16);
-console.log(time);
+//time2= responseJson.datetime.slice(11,16);
+//console.log(time);
 
 if (time>6&&time <18 ){
   bg = "sprites/bg.png";
